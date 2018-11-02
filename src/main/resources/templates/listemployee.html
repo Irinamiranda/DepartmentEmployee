@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Employees</title>
+</head>
+<body>
+<a href="/listemployee">List of Employees</a><br/>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Job title</th>
+        <th>Department</th>
+
+    </tr>
+    <tr th:each="employee:${employees}">
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.jobTitle}"></td>
+        <td th:text="${employee.workPlace}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${employee.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${employee.id})}">Details</a> -
+            <a th:href="@{/delete/{id}(id=${employee.id})}">Delete</a> -
+        </td>
+
+
+    </tr>
+</table>
+</body>
+</html>
