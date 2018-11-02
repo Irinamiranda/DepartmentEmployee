@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,18 +10,26 @@
       th:object="${employee}"
       method="post">
     <input type="hidden" th:field="*{id}"/>
-    Name: <input type="text" th:field="*{name}"/>
-    <span th:if="${#fields.hasErrors('name')}"
-          th:errors="*{name}"></span><br/>
-    Job title: <input type="text" th:field="*{jobTitle}"/>
-    <span th:if="${#fields.hasErrors('jobTitle')}"
-          th:errors="*{jobTitle}"></span><br/>
-    Department: <input type="text" th:field="*{workPlace}"/>
-    <span th:if="${#fields.hasErrors('workPlace')}"
-          th:errors="*{workPlace}"></span><br/>
+
+    Name:
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br/>
+
+    Job title:
+    <input type="text" th:field="*{jobTitle}"/>
+    <span th:if="${#fields.hasErrors('jobTitle')}" th:errors="*{jobTitle}"></span><br/>
+
+    Workplace:
+    <input type="text" th:field="*{workPlace}"/>
+    <span th:if="${#fields.hasErrors('workPlace')}" th:errors="*{workPlace}"></span><br/>
+
+    Department:
+    <select th:field="*{department}">
+        <option th:each="d : ${departments}" th:value="${d.id}" th:text="${d.name}"></option>
+    </select>
 
     <br/>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Submit"/>
 
 </form>
 </body>

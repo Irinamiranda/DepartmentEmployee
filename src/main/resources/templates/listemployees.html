@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>List of Employees</title>
 </head>
 <body>
-<a href="/listemployee">List of Employees</a><br/>
+<a href="/addemployee?id=0">New Employee</a><br/>
+<p>List of Employees</p><br/>
 <table>
     <tr>
         <th>Name</th>
         <th>Job title</th>
+        <th>Workplace</th>
         <th>Department</th>
-
     </tr>
-    <tr th:each="employee:${employees}">
+    <tr th:each="employee : ${employees}">
         <td th:text="${employee.name}"></td>
         <td th:text="${employee.jobTitle}"></td>
         <td th:text="${employee.workPlace}"></td>
+        <td th:text="${employee.department.name}"></td>
         <td>
             <a th:href="@{/update/{id}(id=${employee.id})}">Update</a> -
             <a th:href="@{/detail/{id}(id=${employee.id})}">Details</a> -
             <a th:href="@{/delete/{id}(id=${employee.id})}">Delete</a> -
         </td>
-
-
     </tr>
 </table>
 </body>

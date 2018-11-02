@@ -1,4 +1,5 @@
 package com.example.demo;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,9 +9,8 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String name;
-
-
 
     public Long getId() {
         return id;
@@ -35,7 +35,7 @@ public class Department {
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 
-    Set<Employee> employees = new HashSet<Employee>();
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    Set<Employee> employees = new HashSet<>();
 }

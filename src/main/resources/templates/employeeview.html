@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:object="${employee}">
+    Name: <span th:text="*{name}"/><br/>
+    Job title: <span th:text="*{jobTitle}"/><br/>
+    Workplace: <span th:text="*{workPlace}"/><br/>
+    Department: <span th:text="*{department.name}"/><br/>
+
+    <br/>
+    <a href="/listemployees">All employees</a>
+
+</div>
+</body>
+</html>
